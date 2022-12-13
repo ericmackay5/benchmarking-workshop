@@ -160,7 +160,9 @@ git clone https://github.com/ericmackay5/benchmarking-workshop.git
  ```
 
 ```bash
-docker run -v $PWD/producer.properties:/etc/producer.properties confluentinc/cp-server:7.3.0 /usr/bin/kafka-producer-perf-test \
+docker run \
+    -e BOOTSTRAP_SERVER -e CLUSTER_API_KEY -e CLUSTER_SECRET_KEY \
+    -v $PWD/config/producer.properties:/etc/producer.properties confluentinc/cp-server:7.3.0 /usr/bin/kafka-producer-perf-test \
     --topic performance-test \
     --num-records 1000000 \
     --record-size 512 \
