@@ -151,7 +151,7 @@ Coming Soon!
 
 ***
 
-<details>
+
     <summary><b>Clone the Repo to your EC2</b></summary>
 
 
@@ -200,14 +200,3 @@ To remove everything provisioned by Terraform in either AWS, GCP, or Azure, use 
 ```bash
 terraform destroy
 ```
-
-### Databricks and Snowflake
-If you created instances of either Databricks and Snowflake solely for the purpose of this lab, remove them!
-
-***
-
-## Useful Links
-
-Databricks
-- [Confluent Cloud Databricks Delta Lake Sink](https://docs.confluent.io/cloud/current/connectors/cc-databricks-delta-lake-sink/cc-databricks-delta-lake-sink.html)
-- [Databricks Setup on AWS](https://docs.confluent.io/cloud/current/connectors/cc-databricks-delta-lake-sink/databricks-aws-setup.html)
