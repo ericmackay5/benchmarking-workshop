@@ -160,7 +160,7 @@ git clone https://github.com/ericmackay5/benchmarking-workshop.git
  ```
 
 ```bash
-docker run -v $PWD/producer.properties:/etc/producer.properties confluentinc/cp-server:7.3.0.arm64 /usr/bin/kafka-producer-perf-test \
+docker run -v $PWD/producer.properties:/etc/producer.properties confluentinc/cp-server:7.3.0 /usr/bin/kafka-producer-perf-test \
     --topic performance-test \
     --num-records 1000000 \
     --record-size 512 \
@@ -169,7 +169,7 @@ docker run -v $PWD/producer.properties:/etc/producer.properties confluentinc/cp-
 ```
 
 ```bash
-docker run -v $PWD/consumer.properties:/etc/consumer.properties confluentinc/cp-server:7.3.0.arm64 /usr/bin/kafka-consumer-perf-test \
+docker run -v $PWD/consumer.properties:/etc/consumer.properties confluentinc/cp-server:7.3.0 /usr/bin/kafka-consumer-perf-test \
     --bootstrap-server ${BOOTSTRAP_SERVER} \
     --topic performance-test \
     --messages 1000000 \
@@ -178,7 +178,7 @@ jq -R .|jq -sr 'map(./",")|transpose|map(join(": "))[]'
 ```
 
 ```bash
-docker run -v $PWD/endtoend.properties:/etc/endtoend.properties confluentinc/cp-server:7.3.0.arm64 /usr/bin/kafka-run-class kafka.tools.EndToEndLatency pkc-n00kk.us-east-1.aws.confluent.cloud:9092 endtoendlatency 100000 1 512 /etc/endtoend.properties
+docker run -v $PWD/endtoend.properties:/etc/endtoend.properties confluentinc/cp-server:7.3.0 /usr/bin/kafka-run-class kafka.tools.EndToEndLatency pkc-n00kk.us-east-1.aws.confluent.cloud:9092 endtoendlatency 100000 1 512 /etc/endtoend.properties
 ```
 
 
