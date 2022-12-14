@@ -167,6 +167,7 @@ docker run \
     --num-records 1000000 \
     --record-size 512 \
     --throughput -1 \
+    --producer-props bootstrap.servers=$BOOTSTRAP_SERVER sasl.jaas.config="org.apache.kafka.common.security.plain.PlainLoginModule required username='$CLUSTER_API_KEY' password='$CLUSTER_SECRET_KEY';" \
     --producer.config /etc/producer.properties
 ```
 
